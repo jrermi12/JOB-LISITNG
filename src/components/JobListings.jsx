@@ -1,8 +1,11 @@
 import React from 'react'
 import Jobs from '../jobs.json'
 import JobListing from "./JobListing"
+import { useState } from "react"
 const JobListings = () => {
     const recentJobs = Jobs.slice(0, 3)
+    
+    const {showFullDescription, setshowFullDescription} = useState(false)
     return (
         <section className="bg-blue-50 px-4 py-10">
             <div className="container-xl lg:container m-auto">
@@ -13,8 +16,6 @@ const JobListings = () => {
                     {recentJobs.map((job) => (
                         <JobListing key={job.id} job={job} />
                     ))}
-
-
                 </div>
             </div>
         </section>
